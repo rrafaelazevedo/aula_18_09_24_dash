@@ -18,7 +18,7 @@ df = pd.read_excel('numero_atendentes_necessarios_NAN.xlsx')
 cores  =  [ 'slategray' ,  'magenta']
 
 
-fig  =  px.scatter (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)" ,  color = "Momento" )
+fig  =  px.line (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)")
                          
 
 opcoes = list(df['Momento'].unique())
@@ -45,10 +45,10 @@ app.layout = html.Div(children=[
 
 def update_output(value):
     if value == 'Todos os Momentos':
-        fig  =  px.scatter (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)" ,  color = "Momento" )
+        fig  =  px.line (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)")
     else:
         tabela_filtrada = df.loc[df['Momento'] == value, :]
-        fig  =  px.scatter (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)" ,  color = "Momento" )
+        fig  =  px.line (df,  x = "Hora Fim (x)" ,  y = "Número Médio Ligantes f(x)" )
 
     return fig
 
